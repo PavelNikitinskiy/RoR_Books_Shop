@@ -52,4 +52,16 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+  test "should get products index" do
+    get :index
+    assert_response :success
+    assert_select '.products .list_description', minimum: 3
+    assert_select '.products .list_description dl dt', 'Programming Ruby 1.9'
+    assert_select '.products .list_description dl dd', /.{1,80}/
+    assert_select '.products .list_actions', minimum: 3
+    ['Show', 'Edit', 'Destroy'].each do |action|
+      assert_select '.products .list_actions a', action
+    end
+    assert_select 'a', 'New Product'
+  end
 end
