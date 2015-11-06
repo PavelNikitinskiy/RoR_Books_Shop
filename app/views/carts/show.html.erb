@@ -4,8 +4,6 @@
 <h2>Your Cart</h2>
 <ul>
   <% @cart.line_items.each do |item| %>
-    <li><%= item.product.title %></li>
-  <li><%= link_to 'Edit', edit_cart_path(@cart) %> |
-      <%= link_to 'Back', carts_path %></li>
-    <% end %>
+    <li><%= item.quantity %> &times; <%= item.product.title %></li>
+  <% end %>
 </ul>
