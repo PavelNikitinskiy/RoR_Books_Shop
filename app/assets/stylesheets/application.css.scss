@@ -14,8 +14,8 @@
  *= require_tree .
  *= require_self
  */
-@import "_bootstrap-sprockets";
-@import "_bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 #banner {
  background: #9c9;
  padding: 10px;
