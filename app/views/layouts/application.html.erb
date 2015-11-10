@@ -13,6 +13,9 @@
   </div>
   <div id="columns">
     <div id="side">
+      <div id="cart">
+        <%= render @cart %>
+      </div>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/">Questions</a></li>
@@ -21,7 +24,9 @@
         <li class="red"><%= raw(Time.now.strftime("%Y-%m-%d<br> %H:%M")); %></li>
       </ul>
     </div>
-    <div id="main"><%= yield %></div>
+    <div id="main">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
