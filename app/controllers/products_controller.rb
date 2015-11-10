@@ -10,6 +10,14 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.json {render json: @product}
+    end
+  rescue ActiveRecord::RecordNotFound
+    logger.error "Attempt to access product #{ params[ :id ]}"
+    redirect_to products_url, notice: 'Invalid product'
   end
 
   # GET /products/new
