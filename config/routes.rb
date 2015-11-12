@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  resources :line_items do
+    #member do
+    #  put 'decrement'
+    #end
+    put 'decrement', on: :member
+  end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root to: 'store#index', as: 'store'
