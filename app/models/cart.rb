@@ -16,13 +16,5 @@ class Cart < ActiveRecord::Base
     line_items.to_a.sum {|item| item.total_price}
   end
 
-  def decrement_quantity(line_item_id)
-    current_item = LineItem.find_by_id(line_item_id)
-    if current_item.quantity > 1
-      current_item.quantity -= 1
-    else
-      current_item.destroy
-    end
-    current_item
-  end
+
 end

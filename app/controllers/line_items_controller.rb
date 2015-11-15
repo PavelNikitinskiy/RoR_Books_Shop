@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create,:decrement]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
@@ -56,17 +56,18 @@ class LineItemsController < ApplicationController
   end
 
   def decrement
-    @cart = current_cart
-    @line_item = @line_item.decrement_line_item_quantity(params[:id])
+    @line_item = LineItem.find(params[:id])
     respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to store_path, notice: 'Line item was successfully updated.' }
-        format.js {@current_item = @line_item}
+      if @line_item.quantity == 1
+        @line_item.destroy
+        format.html { render 'destroy' }
+        format.js { render 'carts/destroy' if !@cart.line_items.present? }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.js {@current_item = @line_item}
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        @line_item.update_attribute(:quantity, @line_item.quantity -= 1)
+        format.html { redirect_to store_url }
+        format.js { @current_item = @line_item }
+        format.json { head :ok }
       end
     end
   end

@@ -6,5 +6,5 @@
   <td><%= line_item.quantity %> &times;</td>
   <td><%= line_item.product.title %></td>
   <td class="item_price"><%= number_to_currency( line_item.total_price) %></td>
-  <td><%= button_to 'Decrease', decrement_line_item_url(line_item), method: :put,class:"btn btn-danger btn-sm", remote:'true' %></td>
+  <td><%= button_to "Decrease", decrement_line_item_url(line_item), method: :put,class:'btn btn-danger',remote:'true' %></td>
 </tr>
