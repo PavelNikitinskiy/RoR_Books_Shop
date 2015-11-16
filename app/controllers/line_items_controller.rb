@@ -58,16 +58,17 @@ class LineItemsController < ApplicationController
   def decrement
     @line_item = LineItem.find(params[:id])
     respond_to do |format|
-      if @line_item.quantity == 1
+      if @line_item.decrement
+        @line_item.save
+        format.html { redirect_to store_url }
+        format.js { @current_item = @line_item }
+        format.json { head :ok }
+      else
         @line_item.destroy
         format.html { render 'destroy' }
         format.js { render 'carts/destroy' if !@cart.line_items.present? }
         format.json { head :ok }
-      else
-        @line_item.update_attribute(:quantity, @line_item.quantity -= 1)
-        format.html { redirect_to store_url }
-        format.js { @current_item = @line_item }
-        format.json { head :ok }
+
       end
     end
   end

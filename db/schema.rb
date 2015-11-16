@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20151115180010) do
     t.string   "name"
     t.text     "addres"
     t.string   "email"
-    t.string   "pay_time"
+    t.string   "pay_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
