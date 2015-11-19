@@ -14,6 +14,9 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails4 for more book information.
 #---
 # encoding: utf-8
+PayType.create(:name => "Check")
+PayType.create(:name => "Credit card")
+PayType.create(:name => "Purchase order")
 Product.delete_all
 Product.create!(title: 'CoffeeScript',
                 description:
