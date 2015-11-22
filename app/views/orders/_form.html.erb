@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name, size: 40 %>
@@ -30,4 +29,5 @@
   <div class="actions">
     <%= f.submit 'Place Order' %>
   </div>
+  <%= f.hidden_field_tag :ship_date, value: Time.now.to_datetime %>
 <% end %>
