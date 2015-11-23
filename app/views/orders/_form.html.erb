@@ -29,5 +29,5 @@
   <div class="actions">
     <%= f.submit 'Place Order' %>
   </div>
-  <%= f.hidden_field_tag :ship_date, value: Time.now.to_datetime %>
+  <%= f.hidden_field :ship_date, value: Time.now.to_datetime %>
 <% end %>
