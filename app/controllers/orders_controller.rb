@@ -31,7 +31,6 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-
     @order.add_line_items_from_cart(@cart)
     respond_to do |format|
       if @order.save
@@ -50,8 +49,6 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1
   # PATCH/PUT /orders/1.json
   def update
-
-
     respond_to do |format|
       if @order.update(order_params)
         OrderNotifier.shipped(@order).deliver if !@order.ship_date.nil?
