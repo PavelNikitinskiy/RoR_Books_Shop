@@ -1,8 +1,8 @@
 class LineItemsController < ApplicationController
-  include CurrentCart
   skip_before_action :authorize, only: :create
+  include CurrentCart
   before_action :set_cart, only: [:create,:decrement]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:show, :edit, :update, :decrement]
 
   # GET /line_items
   # GET /line_items.json
@@ -57,7 +57,7 @@ class LineItemsController < ApplicationController
   end
 
   def decrement
-    @line_item = LineItem.find(params[:id])
+    puts "decrement"
     respond_to do |format|
       if @line_item.decrement
         @line_item.save

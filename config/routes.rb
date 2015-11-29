@@ -5,15 +5,11 @@ Rails.application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-  get 'sessions/create'
-  get 'sessions/destroy'
   resources :users
   resources :pay_types
   resources :orders
   resources :line_items
   resources :carts
-  get 'store/index'
-
   resources :products
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

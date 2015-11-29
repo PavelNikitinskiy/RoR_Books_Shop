@@ -4,7 +4,7 @@
   <% end %>
   <%= form_tag do %>
     <fielset>
-      <legend>Sign Up, please</legend>
+      <legend>Sign In</legend>
       <div>
         <%= label_tag :name, 'Name:' %>
         <%= text_field_tag :name, params[:name] %>
@@ -17,6 +17,6 @@
         <%= submit_tag "Login" %>
       </div>
     </fielset>
-  <%= end %>
+  <% end %>
 
 </div>

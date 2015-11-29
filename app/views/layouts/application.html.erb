@@ -26,6 +26,10 @@
         <li><a href="/">News</a></li>
         <li><a href="/">Contacts</a></li>
         <li class="red"><%= raw(Time.now.strftime("%Y-%m-%d<br> %H:%M")); %></li>
+        <% if !@user %>
+          <p><%= link_to 'Sign In', login_path  %></p>
+          <p><%= link_to 'Sign UP', new_user_url  %></p>
+        <% end %>
       </ul>
       <% if session[:user_id] %>
         <ul>
