@@ -41,8 +41,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    cp = params[:user].delete('current_password')
-    @user.errors.add(:current_password, 'is not correct') unless @user.authenticate(cp)
 
     respond_to do |format|
       if @user.errors.empty? and @user.update_attributes(params[:user])

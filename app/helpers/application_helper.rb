@@ -4,5 +4,10 @@ module ApplicationHelper
 			attributes["style"] = "display: none"
 		end
 		content_tag("div", attributes, &block)
-	end
+  end
+
+  def authorized_user?
+    User.find_by(id: session[:user_id])
+  end
+
 end

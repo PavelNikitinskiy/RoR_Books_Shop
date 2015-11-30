@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  skip_before_action :authorize, only: :create
+  skip_before_action :authorize, only: [:create, :decrement]
   include CurrentCart
   before_action :set_cart, only: [:create,:decrement]
   before_action :set_line_item, only: [:show, :edit, :update, :decrement]
@@ -57,7 +57,7 @@ class LineItemsController < ApplicationController
   end
 
   def decrement
-    puts "decrement"
+
     respond_to do |format|
       if @line_item.decrement
         @line_item.save

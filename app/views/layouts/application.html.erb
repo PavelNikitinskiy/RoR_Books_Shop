@@ -26,9 +26,11 @@
         <li><a href="/">News</a></li>
         <li><a href="/">Contacts</a></li>
         <li class="red"><%= raw(Time.now.strftime("%Y-%m-%d<br> %H:%M")); %></li>
-        <% if !@user %>
+        <% if !authorized_user? %>
           <p><%= link_to 'Sign In', login_path  %></p>
           <p><%= link_to 'Sign UP', new_user_url  %></p>
+        <% else %>
+           <%= button_to 'Logout', logout_path, method: :delete %>
         <% end %>
       </ul>
       <% if session[:user_id] %>
@@ -37,7 +39,6 @@
           <li><%= link_to 'Products', products_path %></li>
           <li><%= link_to 'Users', users_path %></li>
         </ul>
-        <%= button_to 'Logout', logout_path, method: :delete %>
       <% end %>
     </div>
     <div id="main">

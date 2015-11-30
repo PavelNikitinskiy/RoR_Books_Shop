@@ -18,7 +18,6 @@ PayType.create(:name => "Check")
 PayType.create(:name => "Credit card")
 PayType.create(:name => "Purchase order")
 User.create(name: 'admin', password: 'password', password_confirmation: 'password')
-Product.delete_all
 Product.create!(title: 'CoffeeScript',
                 description:
                     %{<p>
