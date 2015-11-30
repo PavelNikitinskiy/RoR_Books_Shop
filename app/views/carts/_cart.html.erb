@@ -1,5 +1,5 @@
 <% unless cart.line_items.empty? %>
-  <div class="cart_title">Your Cart</div>
+  <div class="cart_title"><%= t('.title') %></div>
   <table>
      <%= render(cart.line_items) %>
 
@@ -9,7 +9,7 @@
     </tr>
   </table>
   <div class="form-group">
-    <%= button_to "Buy", new_order_path, class:'btn btn-info', method: :get if @order.nil? %>
-    <%= button_to 'Empty cart', cart, method: :delete, class:'btn btn-info text-right', data: {confirm: 'Are you sure?'}, remote:'true' %>
+    <%= button_to t('.checkout'), new_order_path, class:'btn btn-info', method: :get if @order.nil? %>
+    <%= button_to t('.empty'), cart, method: :delete, class:'btn btn-info text-right', data: {confirm: 'Are you sure?'}, remote:'true' %>
   </div>
 <% end %>
