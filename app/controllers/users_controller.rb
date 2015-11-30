@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user_url, notice: 'User was successfully created.' }
+        format.html { redirect_to user_url(@user), notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -41,13 +41,13 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-
     respond_to do |format|
-      if @user.errors.empty? and @user.update_attributes(params[:user])
+      if @user.update(user_params) && @user.authenticate(params[:user].delete(:current_password))
         format.html { redirect_to users_url, notice: "User #{@user.name} was successfully updated." }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        @user.errors.add(:current_password, "for user is incorrect") unless @user.authenticate(params[:user].delete(:current_password))
+        format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

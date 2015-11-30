@@ -17,14 +17,14 @@
         <%= f.label :name, 'Name:' %><br>
         <%= f.text_field :name, size: 40 %>
       </div>
-      <% if params[:action] == 'edit' || params[:action] == 'update' %> # 'update' needed or field will disappear when there is an error
+      <% if params[:action] == 'edit' || params[:action] == 'update' %>
         <div class="field">
           <%= f.label :current_password, 'Current password:' %>
           <%= f.password_field :current_password, size: 40 %>
         </div>
       <% end %>
       <div class="field">
-        <%= f.label :password, 'password' %><br>
+        <%= f.label :password, 'New password' %><br>
         <%= f.password_field :password, size: 40 %>
       </div>
       <div class="field">
