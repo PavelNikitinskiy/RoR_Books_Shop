@@ -15,7 +15,7 @@
     <%= f.text_field :name, size: 40 %>
   </div>
   <div class="field">
-    <%= f.label :addres %><br>
+    <%= f.label :addres, t('.address_html') %><br>
     <%= f.text_area :addres, rows: 3, cols: 40 %>
   </div>
   <div class="field">
@@ -27,7 +27,7 @@
     <%= collection_select(:order, :pay_type_id, PayType.all, :id, :name) %>
   </div>
   <div class="actions">
-    <%= f.submit 'Place Order' %>
+    <%= f.submit t('.submit') %>
   </div>
   <%= f.hidden_field :ship_date, value: Time.now.to_datetime %>
 <% end %>

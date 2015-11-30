@@ -23,3 +23,8 @@ es:
               separator:     ","
               delimiter:     "."
               format:        "%n&nbsp;%u"
+  orders:
+      new:
+        legend:  "Pleace enter your details"
+      form:
+        name:  "Name"
