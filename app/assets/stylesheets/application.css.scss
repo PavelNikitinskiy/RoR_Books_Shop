@@ -16,6 +16,10 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.locale{
+  float:right;
+  margin: -0.25em 0.1em;
+}
 #banner {
  background: #9c9;
  padding: 10px;
