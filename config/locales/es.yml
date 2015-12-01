@@ -25,6 +25,11 @@ es:
               format:        "%n&nbsp;%u"
   orders:
       new:
-        legend:  "Pleace enter your details"
+         legend:           "Por favor, introduzca sus datos"
       form:
-        name:  "Name"
+         name:             "Nombre"
+         address_html:     "Direcci&oacute;n"
+         email:            "E-mail"
+         pay_type:         "Forma de pago"
+         pay_prompt_html:  "Seleccione un m&eacute;todo de pago"
+         submit:           "Realizar Pedido"
