@@ -28,6 +28,7 @@ Product.create!(title: 'CoffeeScript',
 	while writing clearer, cleaner, and safer code.
       </p>},
                 image_url:   'cs.jpg',
+                locale: 'en',
                 price: 36.00)
 # . . .
 Product.create!(title: 'Programming Ruby 1.9 & 2.0',
@@ -38,6 +39,7 @@ Product.create!(title: 'Programming Ruby 1.9 & 2.0',
         you should add Ruby to your toolbox.
       </p>},
                 image_url: 'ruby.jpg',
+                locale: 'en',
                 price: 49.95)
 # . . .
 
@@ -52,4 +54,5 @@ Product.create!(title: 'Rails Test Prescriptions',
         including Cucumber, Shoulda, Machinist, Mocha, and Rcov.
       </p>},
                 image_url: 'rtp.jpg',
+                locale: 'en',
                 price: 34.95)
