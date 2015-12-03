@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'sprockets'
-
+gem 'pg'
 gem 'compass', '~> 1.0', '>= 1.0.3'
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
@@ -42,7 +42,7 @@ group :development, :test do
 end
 group :production do
   gem 'thin'
-  gem 'pg'
+
 end
 gem 'rails_12factor', group: :production
 group :development do
