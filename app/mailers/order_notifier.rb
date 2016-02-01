@@ -8,6 +8,7 @@ class OrderNotifier < ApplicationMailer
   #
   def received(order)
     @order = order
+    puts @order.inspect
 
     mail to: order.email, subject: "Подтверждение заказа в Pragmatic Store"
   end

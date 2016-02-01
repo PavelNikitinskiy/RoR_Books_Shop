@@ -70,12 +70,12 @@ config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.i18n.fallbacks = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address:          "smtp.gmail.com",
+      address:          "tritonpavel.gmail.com",
       port:             587,
-      domain:           "domain.of.sender.net",
-      authentication:   "plain",
-      user_name:        "dave",
-      password:         "secret",
+      domain:           "gmail.com",
+      authentication:   :plain,
+      user_name:        "tritonpavel",
+      password:         "32425262Pasha",
       enable_starttls_auto: true
   }
 
